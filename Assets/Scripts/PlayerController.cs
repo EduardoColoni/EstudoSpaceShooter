@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private Rigidbody2D meuRB;
+    [SerializeField] private GameObject meuTiro;
     [SerializeField] float velocidade = 5f;
     // Start is called before the first frame update
     void Start()
@@ -24,5 +25,10 @@ public class PlayerController : MonoBehaviour
         minhaVelocidade.Normalize();
         //Passando minha velocidade para o meu RB
         meuRB.velocity = minhaVelocidade * velocidade;
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(meuTiro, transform.position, transform.rotation);
+        }
     }
 }
